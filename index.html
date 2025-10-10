@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JT Productions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/style.css">
+
+</head>
+<body>
+  <header>
+    <video autoplay muted loop class="bg-video">
+      <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-content">
+      <h1>JT Productions</h1>
+      <p>Cinematic Videography</p>
+      <button class="cta-btn" onclick="document.getElementById('callback').scrollIntoView({behavior: 'smooth'});">Request a Callback</button>
+    </div>
+  </header>
+
+  <section>
+    <h2>Downloads</h2>
+    <div class="frame">
+        <a href="schedule.html">
+        <button class="schedule">SCHEDULE</button>
+        </a>
+        <a href="production.html">
+        <button class="production">PRODUCTION</button>
+        </a>
+        <a href="download.html">
+        <button class="download">DOWNLOAD</button>
+        </a>
+    </div>
+  </section>
+
+  <section id="callback">
+    <h2>Request a Callback</h2>
+    <form id="callback-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <textarea name="message" rows="4" placeholder="Project Details..." required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+<script>
+  document.getElementById('callback-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch('https://script.google.com/macros/s/AKfycbyO84yHkIg2_ulRO1D5hCQxisZD8PXV7gpWaUW_FYeBsoUsJeMuEbXrW5IrJDJ6o1M6RQ/exec', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+      alert('Thank you! We will contact you shortly.');
+      form.reset();
+    })
+    .catch(error => {
+      alert('Submission failed. Please try again.');
+      console.error('Submission error:', error);
+    });
+  });
+</script>
+
+
+
+
+  <footer>
+    &copy; 2025 JT Productions. All rights reserved.
+  </footer>
+</body>
+</html>
