@@ -8,16 +8,33 @@
   <link rel="stylesheet" href="style/style.css">
 </head>
 
+  <header>
+    <video autoplay muted loop class="bg-video">
+      <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-content">
+      <h1>JT Productions</h1>
+      <p>Downloads</p>
+      <div class="scroll-down"  onclick="document.getElementById('callback').scrollIntoView({behavior: 'smooth'});">↓</div>
+    </div>
+  </header>
+
 <body>
 
-<div class="frame">
+<section id="callback">
+  
+    <h2><u>Downloads</u></h2>
+<div class="md">
+  <h2>Marvin & DeAnna</h2>
+    <div class="frame">
     <a href="https://github.com/Better-Production/JTProductions/releases/download/v1.0/Marvin.DeAnna.zip">
     <button class="download">Download</button>
     </a>
-
 </div>
 
+</div>
+</section>
 </body>
-<script src="scripts.js"></script>
-
+<script src="script.js"></script>
 </html>
