@@ -1,0 +1,205 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; color: white; background-color: #000; overflow-x: hidden; }
+    header {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    video.bg-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .hero-content {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .hero-content h1 {
+      font-size: 4rem;
+      animation: fadeInUp 1.5s ease;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin: 20px 0;
+      animation: fadeInUp 2s ease;
+    }
+    .cta-btn {
+      padding: 12px 24px;
+      background: #e50914;
+      color: white;
+      border: none;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      animation: fadeInUp 2.5s ease;
+    }
+    .cta-btn:hover {
+      background: #b00610;
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      padding: 80px 20px;
+      background: #111;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 150px;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    #callback-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: #222;
+      padding: 30px;
+      border-radius: 10px;
+    }
+    #callback-form input, #callback-form textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    #callback-form button {
+      padding: 12px;
+      background: #e50914;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    .frame{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+
+/*SCHEDULE*/
+.schedule{
+    cursor: pointer;
+    text-align: center;
+    margin-top: 40px;
+    margin: 10px;
+    margin-bottom: -80px;
+    width: 225px;
+    height: 125px;
+    border: 10px;
+    border-radius: 6px;
+    border-color: white;
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+    background-color: rgb(4, 0, 253);
+    box-shadow: rgba(0, 0, 0, 0.479) 0px 5px 0px 0px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.schedule:hover{
+      transform: scale(1.1); /* grows slightly */
+    box-shadow: 0 18px 20px rgba(0, 0, 0, 0.2);
+}
+
+.schedule:active{
+    transform: scale(1.08); /* looks pressed down */
+    box-shadow: 0 15px 18px rgba(0, 0, 0, 0.15);
+}
+
+/*PRODUCTION*/
+.production{
+    cursor: pointer;
+    text-align: center;
+    margin-top: 40px;
+    margin: 10px;
+    margin-bottom: -80px;
+    width: 225px;
+    height: 125px;
+    border: 10px;
+    border-radius: 6px;
+    border-color: white;
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+    background-color: rgb(0, 184, 15);
+    box-shadow: rgba(0, 0, 0, 0.479) 0px 5px 0px 0px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.production:hover{
+      transform: scale(1.1); /* grows slightly */
+    box-shadow: 0 18px 20px rgba(0, 0, 0, 0.2);
+}
+
+.production:active{
+    transform: scale(1.08); /* looks pressed down */
+    box-shadow: 0 15px 18px rgba(0, 0, 0, 0.15);
+}
+
+/*DOWNLOADS*/
+.download{
+    cursor: pointer;
+    text-align: center;
+    margin-top: 40px;
+    margin: 10px;
+    margin-bottom: -80px;
+    width: 225px;
+    height: 125px;
+    border: 10px;
+    border-radius: 6px;
+    border-color: white;
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+    background-color: rgb(253, 0, 0);
+    box-shadow: rgba(0, 0, 0, 0.479) 0px 5px 0px 0px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.download:hover{
+      transform: scale(1.1); /* grows slightly */
+    box-shadow: 0 18px 20px rgba(0, 0, 0, 0.2);
+}
+
+.download:active{
+    transform: scale(1.08); /* looks pressed down */
+    box-shadow: 0 15px 18px rgba(0, 0, 0, 0.15);
+}
