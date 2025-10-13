@@ -6,8 +6,6 @@
   <title>JT Productions</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style/style.css">
-  <link rel="icon" type="image/x-icon" href="jtp.ico">
-
 
 </head>
 <body>
@@ -16,18 +14,23 @@
       <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
+  
     <div class="hero-content">
-      <h1>JT Productions</h1>
-      <p>Cinematic Videography</p>
-      <button class="cta-btn" onclick="document.getElementById('callback').scrollIntoView({behavior: 'smooth'});">Request a Callback</button>
+      <h1><img src="style/images/jtp1.png" alt="Hero Image" class="hero-image"></h1>
+      <!--<p>Cinematic Videography</p>-->
+      
+      <button class="cta-btn" onclick="document.getElementById('callback').scrollIntoView({behavior: 'smooth'});">Go To Work Flow</button>
     </div>
   </header>
 
-  <section>
+<section id="callback">
     <h2>Work Flow</h2>
     <div class="frame">
         <a href="schedule.html">
         <button class="schedule">SCHEDULE</button>
+        </a>
+        <a href="consultation.html">
+        <button class="consultation">CONSULTATION</button>
         </a>
         <a href="production.html">
         <button class="production">PRODUCTION</button>
@@ -36,17 +39,40 @@
         <button class="download">DOWNLOAD</button>
         </a>
     </div>
-  </section>
+<h2>Request a Callback</h2>
+<form id="callback-form">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Email Address" required />
+  <input type="tel" name="phone" placeholder="Phone Number" required />
+  <textarea name="message" rows="4" placeholder="Project Details..." required></textarea>
+  <button type="submit">Submit</button>
+</form>
 
-  <section id="callback">
-    <h2>Request a Callback</h2>
-    <form id="callback-form">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Email Address" required />
-      <input type="tel" name="phone" placeholder="Phone Number" required />
-      <textarea name="message" rows="4" placeholder="Project Details..." required></textarea>
-      <button type="submit">Submit</button>
-    </form>
+<!-- Load EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+<script>
+  // Wait until DOM is ready (extra-safe)
+  document.addEventListener('DOMContentLoaded', function () {
+    // Initialize EmailJS with your Public Key
+    emailjs.init("dqAoUtk4DZCFqxQ3g"); // <-- your public key
+
+    // Attach submit handler
+    document.getElementById('callback-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      emailjs.sendForm('service_udofah3', 'template_c4i7xwe', this)
+        .then(function () {
+          alert("✅ Your message has been sent successfully!");
+          e.target.reset();
+        })
+        .catch(function (error) {
+          console.error('❌ Error sending email:', error);
+          alert("Something went wrong. Please try again later.");
+        });
+    });
+  });
+</script>
   </section>
 
 <script>
@@ -72,13 +98,16 @@
   });
 </script>
 
-
-
+<!--
+  For God so loved the world 
+  that he gave his one and only Son, 
+  that whoever believes in him shall 
+  not perish but have eternal life
+                        - John 3:16
+-->
 
   <footer>
     &copy; 2025 JT Productions. All rights reserved.
   </footer>
 </body>
 </html>
-
-
