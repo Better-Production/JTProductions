@@ -89,11 +89,11 @@
     })
     .then(response => response.text())
     .then(data => {
-      alert('Thank you! We will contact you shortly.');
+      alert('✅ Your message has been sent successfully! Allow for 1 to 2 Business days for response.');
       form.reset();
     })
     .catch(error => {
-      alert('Submission failed. Please try again.');
+      alert('Something went wrong. Please try again later.');
       console.error('Submission error:', error);
     });
   });
