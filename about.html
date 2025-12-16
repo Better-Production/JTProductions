@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JT Productions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/style.css">
+
+</head>
+<body>
+  <header>
+    <video autoplay muted loop class="bg-video">
+      <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  
+    <div class="hero-content">
+      <h1><img src="style/images/jtp1.png" alt="Hero Image" class="hero-image"></h1>
+      
+      <!--<p>Cinematic Videography</p>-->
+      <button class="cta-btn" onclick="window.location.href='about.html'">About</button>
+      <button class="cta-btn" onclick="document.getElementById('callback').scrollIntoView({behavior: 'smooth'});">Contact</button>
+    </div>
+  </header>
+
+<section id="callback">
+    <!---<h2>Work Flow</h2>
+    <div class="frame">
+        <a href="schedule.html">
+        <button class="schedule">SCHEDULE</button>
+        </a>
+        <a href="consultation.html">
+        <button class="consultation">CONSULTATION</button>
+        </a>
+        <a href="production.html">
+        <button class="production">PRODUCTION</button>
+        </a>
+        <a href="download.html">
+        <button class="download">DOWNLOAD</button>
+        </a>
+    </div>--->
+<h2>Contact Us</h2>
+<form id="callback-form">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Email Address" required />
+  <input type="tel" name="phone" placeholder="Phone Number" required />
+  <textarea name="message" rows="4" placeholder="Project Details..." required></textarea>
+  <button type="submit">Submit</button>
+</form>
+
+<!-- Load EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+<!---<script>
+  // Wait until DOM is ready (extra-safe)
+  document.addEventListener('DOMContentLoaded', function () {
+    // Initialize EmailJS with your Public Key
+    emailjs.init("dqAoUtk4DZCFqxQ3g"); // <-- your public key
+
+    // Attach submit handler
+    document.getElementById('callback-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      emailjs.sendForm('service_udofah3', 'template_c4i7xwe', this)
+        .then(function () {
+          alert("✅ Your message has been sent successfully! Allow for 1 to 2 Business days for response.");
+          e.target.reset();
+        })
+        .catch(function (error) {
+          console.error('❌ Error sending email:', error);
+          alert("Something went wrong. Please try again later.");
+        });
+    });
+  });
+</script>-->
+  </section>
+
+<script>
+  document.getElementById('callback-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch('https://script.google.com/macros/s/AKfycbyO84yHkIg2_ulRO1D5hCQxisZD8PXV7gpWaUW_FYeBsoUsJeMuEbXrW5IrJDJ6o1M6RQ/exec', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+      alert('✅ Your message has been sent successfully! Allow for 1 to 2 Business days for response.');
+      form.reset();
+    })
+    .catch(error => {
+      alert('Something went wrong. Please try again later.');
+      console.error('Submission error:', error);
+    });
+  });
+</script>
+
+<!--
+  For God so loved the world 
+  that he gave his one and only Son, 
+  that whoever believes in him shall 
+  not perish but have eternal life
+                        - John 3:16
+-->
+
+  <footer>
+    &copy; 2025 JT Productions. All rights reserved.
+  </footer>
+</body>
+</html>
+
