@@ -36,8 +36,20 @@
       margin: 20px 0;
       animation: fadeInUp 2s ease;
     }
+
+    .cta-container{
+  display: flex;
+  gap: 12px;              /* space between buttons */
+  justify-content: center;
+  margin-top: 20px;
+
+    }
+
     .cta-btn {
       padding: 12px 24px;
+      margin-bottom: 5px;
+      min-width: 150px;     /* adjust to taste */
+      text-align: center;
       background: #e50914;
       color: white;
       border: none;
