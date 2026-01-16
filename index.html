@@ -70,39 +70,50 @@
         </a>
     </div>--->
 <h2>Contact Us</h2>
+
 <form id="callback-form">
   <input type="text" name="name" placeholder="Your Name" required />
   <input type="email" name="email" placeholder="Email Address" required />
   <input type="tel" name="phone" placeholder="Phone Number" required />
   <textarea name="message" rows="4" placeholder="Project Details..." required></textarea>
-  <button type="submit">Submit</button>
+  <button type="submit" id="sendBtn">Submit</button>
 </form>
 
-<!-- Load EmailJS SDK -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<!-- EmailJS Browser SDK (modern) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
-  // Wait until DOM is ready (extra-safe)
-  document.addEventListener('DOMContentLoaded', function () {
-    // Initialize EmailJS with your Public Key
-    emailjs.init("ThSX64TzkiFtFr_9e"); // <-- your public key
+  document.addEventListener("DOMContentLoaded", function () {
+    // ✅ modern init
+    emailjs.init({ publicKey: "ThSX64TzkiFtFr_9e" });
 
-    // Attach submit handler
-    document.getElementById('callback-form').addEventListener('submit', function (e) {
+    const form = document.getElementById("callback-form");
+    const btn = document.getElementById("sendBtn");
+
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      emailjs.sendForm('service_udofah3', 'template_c4i7xwe', this)
-        .then(function () {
-          alert("✅ Your message has been sent successfully! Allow for 1 to 2 Business days for response.");
-          e.target.reset();
+      btn.disabled = true;
+      btn.textContent = "Sending...";
+
+      emailjs
+        .sendForm("service_udofah3", "template_c4i7xwe", form)
+        .then(() => {
+          alert("✅ Message sent! Allow 1–2 business days for a response.");
+          form.reset();
         })
-        .catch(function (error) {
-          console.error('❌ Error sending email:', error);
-          alert("Something went wrong. Please try again later.");
+        .catch((error) => {
+          console.error("❌ EmailJS error:", error);
+          alert("❌ Failed to send. Check console for the exact error.");
+        })
+        .finally(() => {
+          btn.disabled = false;
+          btn.textContent = "Submit";
         });
     });
   });
 </script>
+
   </section>
 
 <!--<script>
