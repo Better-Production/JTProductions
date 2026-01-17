@@ -80,26 +80,27 @@
 </form>
 
 <!-- EmailJS Browser SDK (modern) -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
-  // Wait until DOM is ready (extra-safe)
   document.addEventListener('DOMContentLoaded', function () {
-    // Initialize EmailJS with your Public Key
-    emailjs.init("dqAoUtk4DZCFqxQ3g"); // <-- your public key
+    // ✅ Modern EmailJS init (PUBLIC KEY)
+    emailjs.init({ publicKey: "u8-ubCxna7WyQ2DFH" });
 
-    // Attach submit handler
-    document.getElementById('callback-form').addEventListener('submit', function (e) {
+    const form = document.getElementById('callback-form');
+
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      emailjs.sendForm('service_udofah3', 'template_c4i7xwe', this)
+      emailjs
+        .sendForm('service_udofah3', 'template_5ydvdb8', form)
         .then(function () {
-          alert("✅ Your message has been sent successfully! Allow for 1 to 2 Business days for response.");
-          e.target.reset();
+          alert("✅ Your message has been sent successfully! Allow 1–2 business days for response.");
+          form.reset();
         })
         .catch(function (error) {
-          console.error('❌ Error sending email:', error);
-          alert("Something went wrong. Please try again later.");
+          console.error('❌ EmailJS error:', error);
+          alert("❌ Something went wrong. Please try again later.");
         });
     });
   });
